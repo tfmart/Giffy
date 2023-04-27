@@ -10,8 +10,7 @@ import UIKit
 import SwiftUI
 import FLAnimatedImage
 
-@available(iOS 13.0, *)
-struct GiffyViewRepresentable: UIViewRepresentable {
+public struct FLAnimatedImageViewRepresentable: UIViewRepresentable {
     var imageData: Data
     
     private let imageView: FLAnimatedImageView = {
@@ -21,7 +20,7 @@ struct GiffyViewRepresentable: UIViewRepresentable {
         return imageView
     }()
     
-    func makeUIView(context: Context) -> UIView {
+    public func makeUIView(context: Context) -> UIView {
         let view = UIView(frame: .zero)
         view.addSubview(imageView)
         
@@ -31,7 +30,7 @@ struct GiffyViewRepresentable: UIViewRepresentable {
         return view
     }
     
-    func updateUIView(_ uiView: UIView, context: Context) {
+    public func updateUIView(_ uiView: UIView, context: Context) {
         let image = FLAnimatedImage(animatedGIFData: imageData)
         DispatchQueue.main.async {
             imageView.animatedImage = image
