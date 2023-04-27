@@ -20,8 +20,8 @@ public struct Giffy<Content: View>: View {
         category: String(describing: Giffy.self)
     )
     
-    init(url: URL,
-         @ViewBuilder content: @escaping (GiffyPhase) -> Content) {
+    public init(url: URL,
+                @ViewBuilder content: @escaping (GiffyPhase) -> Content) {
         self.content = content
         self.url = url
     }
