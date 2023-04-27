@@ -29,14 +29,14 @@ public struct Giffy<Content: View>: View {
     public var body: some View {
         content(phase)
             .task {
-                guard let data = try? Data(contentsOf: url),
-                      UIImage(data: data) != nil else {
+                do {
+                    let (data, _) = try await URLSession.shared.data(from: url)
+                    let view = FLAnimatedImageViewRepresentable(imageData: data)
+                    self.phase = .success(view)
+                } catch {
                     logger.warning("Could not get data for GIF file located at \(url.absoluteString)")
                     self.phase = .error
-                    return
                 }
-                let view = FLAnimatedImageViewRepresentable(imageData: data)
-                self.phase = .success(view)
             }
     }
 }
