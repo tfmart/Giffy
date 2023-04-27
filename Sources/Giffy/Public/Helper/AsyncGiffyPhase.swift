@@ -1,5 +1,5 @@
 //
-//  GiffyPhase.swift
+//  AsyncGiffyPhase.swift
 //  
 //
 //  Created by Tomas Martins on 27/04/23.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-public enum GiffyPhase {
+public enum AsyncGiffyPhase {
     case loading
-    case success(FLAnimatedImageViewRepresentable)
+    case success(Giffy)
     case error
 }
