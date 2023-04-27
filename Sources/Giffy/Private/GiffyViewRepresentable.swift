@@ -32,8 +32,6 @@ public struct FLAnimatedImageViewRepresentable: UIViewRepresentable {
     
     public func updateUIView(_ uiView: UIView, context: Context) {
         let image = FLAnimatedImage(animatedGIFData: imageData)
-        DispatchQueue.main.async {
-            imageView.animatedImage = image
-        }
+        imageView.animatedImage = image
     }
 }

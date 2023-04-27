@@ -35,7 +35,24 @@ public struct Giffy<Content: View>: View {
                     self.phase = .error
                     return
                 }
-                self.phase = .success(.init(imageData: data))
+                let view = FLAnimatedImageViewRepresentable(imageData: data)
+                self.phase = .success(view)
             }
+    }
+}
+
+struct Giffy_Previews: PreviewProvider {
+    static var previews: some View {
+        Giffy(url: .init(string: "https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif")!) { phase in
+            switch phase {
+            case .loading:
+                Text("Loading...")
+            case .error:
+                Text("Error")
+            case .success(let gif):
+                gif
+                    .frame(height: 120)
+            }
+        }
     }
 }
