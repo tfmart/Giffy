@@ -11,6 +11,7 @@ import UIKit
 import SwiftUI
 import FLAnimatedImage
 
+/// A SwiftUI view that can display an animted GIF image that is stored locally. To present animation from a remote URL, use ``AsyncGiffy`` instead.
 public struct Giffy: UIViewRepresentable {
     @ObservedObject internal var configuration: GiffyConfiguration
     private let contentSource: GiffyContentSource
@@ -27,16 +28,26 @@ public struct Giffy: UIViewRepresentable {
         category: String(describing: Giffy.self)
     )
     
+    /// Creates a view that can display an animated GIF image
+    /// - Parameters:
+    ///   - name: The name of the asset to be displayed by the `Giffy` view
+    ///   - bundle: The bundle in which the asset is located
     public init(_ name: String, bundle: Bundle = .main) {
         self.contentSource = .fileName(name, bundle: bundle)
         self.configuration = .init()
     }
     
+    /// Creates a view that can display an animated GIF image
+    /// - Parameter imageData: The `Data` content of an GIF image
     public init(imageData: Data) {
         self.contentSource = .data(imageData)
         self.configuration = .init()
     }
     
+    /// Creates a view that can display an animated GIF image
+    /// - Parameter filePath: The path to the Lottie animation file
+    ///
+    /// This initializer should only be used for files that are stored locally. To load GIFs from a remote URL, use the ``AsyncGiffy`` view instead.
     public init(filePath: URL) {
         self.contentSource = .filePath(filePath)
         self.configuration = .init()

@@ -8,6 +8,7 @@
 import os
 import SwiftUI
 
+/// A SwiftUI view that can display an animted GIF image from a remote URL. To present an GIF image that is stored locally, use the ``Giffy`` component instead.
 public struct AsyncGiffy<Content: View>: View {
     @ViewBuilder
     private let content: (AsyncGiffyPhase) -> Content
@@ -20,6 +21,10 @@ public struct AsyncGiffy<Content: View>: View {
         category: String(describing: AsyncGiffy.self)
     )
     
+    /// Creates a view that presents an animted GIF image from a remote URL to be displayed in phases
+    /// - Parameters:
+    ///   - url: The remote URL of an animated GIF image to be displayed
+    ///   - content: A closure that takes the current phase as an input and returns the view to be displayed in each phase
     public init(url: URL,
                 @ViewBuilder content: @escaping (AsyncGiffyPhase) -> Content) {
         self.content = content
