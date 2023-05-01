@@ -112,7 +112,7 @@ extension Giffy {
         }
      ```
     */
-    func onLoop(_ completion: @escaping () -> Void) -> Giffy{
+    public func onLoop(_ completion: @escaping () -> Void) -> Giffy{
         self.configuration.onLoopCompletion = completion
         return self
     }
