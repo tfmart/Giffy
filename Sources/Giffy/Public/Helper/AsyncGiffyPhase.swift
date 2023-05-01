@@ -9,6 +9,6 @@ import Foundation
 
 public enum AsyncGiffyPhase {
     case loading
-    case success(Giffy)
     case error
+    case success(Giffy)
 }
