@@ -18,14 +18,14 @@ To display an animation from a local GIF file, use the `Giffy` component:
 Giffy("cat")
 ```
 
+![Gravação de Tela 2023-05-01 às 12 36 15](https://user-images.githubusercontent.com/23082132/235479461-8364b51a-e779-429e-a4bb-f4e0b82806ce.gif)
+
 If your GIF is stored on another bundle outside your project's main bundle, you can specify the Bundle to load the animation from.
 
 ```swift
 // Loads an animation from the provided bundle
 LottieView("cat", bundle: DesignSystem.Bundle.main)
 ```
-
-![Gravação de Tela 2023-05-01 às 12 36 15](https://user-images.githubusercontent.com/23082132/235479461-8364b51a-e779-429e-a4bb-f4e0b82806ce.gif)
 
 Or if you want to use the path to your GIF file, you can simply pass it as well:
 
