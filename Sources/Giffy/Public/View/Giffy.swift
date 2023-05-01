@@ -1,5 +1,5 @@
 //
-//  GiffyViewRepresentable.swift
+//  Giffy.swift
 //  GuruDesignSystem
 //
 //  Created by Tomas Martins on 27/04/23.

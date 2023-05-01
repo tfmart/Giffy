@@ -1,5 +1,5 @@
 //
-//  Giffy.swift
+//  AsyncGiffy.swift
 //  
 //
 //  Created by Tomas Martins on 27/04/23.
@@ -33,14 +33,16 @@ public struct AsyncGiffy<Content: View>: View {
     
     public var body: some View {
         content(phase)
-            .task {
-                do {
-                    let (data, _) = try await URLSession.shared.data(from: url)
-                    let view = Giffy(imageData: data)
-                    self.phase = .success(view)
-                } catch {
-                    logger.warning("Could not get data for GIF file located at \(url.absoluteString)")
-                    self.phase = .error
+            .onAppear {
+                Task {
+                    do {
+                        let (data, _) = try await URLSession.shared.data(from: url)
+                        let view = Giffy(imageData: data)
+                        self.phase = .success(view)
+                    } catch {
+                        logger.warning("Could not get data for GIF file located at \(url.absoluteString)")
+                        self.phase = .error
+                    }
                 }
             }
     }
