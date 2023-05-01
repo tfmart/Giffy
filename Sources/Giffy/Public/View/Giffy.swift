@@ -20,6 +20,7 @@ public struct Giffy: UIViewRepresentable {
         let imageView = FLAnimatedImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
