@@ -1,6 +1,6 @@
 # Giffy
 
-Giffy is a lightweight package that allows you to display animated GIF in SwiftUI views. Powered by the field-tested [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage), all your displayed animations will be very performant while beign memory efficient.
+Giffy is a lightweight package that allows you to display animated GIF in SwiftUI views. Powered by the field-tested [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage), all your displayed animations will be very performant while being memory efficient.
 
 Giffy can be used to display both GIF files stored locally and from remote URLs, providing a very familiar API that will feel right at home in a SwiftUI environment
 
@@ -36,7 +36,7 @@ LottieView(path: URL(string: "path/to/cat.gif")!)
 
 ### Remote Files
 
-If you want to display a GIF from the web, use the `AsyncGiffy` component. You can also setup a placeholder view to be displayed while the view is beign loaded and a view to be displayed in place in case the GIF fails to load:
+If you want to display a GIF from the web, use the `AsyncGiffy` component. You can also setup a placeholder view to be displayed while the view is being loaded and a view to be displayed in place in case the GIF fails to load:
 
 ```swift
 let url = URL(string: "https://media.giphy.com/media/RrVzUOXldFe8M/giphy.gif")!
