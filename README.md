@@ -24,14 +24,14 @@ If your GIF is stored on another bundle outside your project's main bundle, you 
 
 ```swift
 // Loads an animation from the provided bundle
-LottieView("cat", bundle: DesignSystem.Bundle.main)
+Giffy("cat", bundle: DesignSystem.Bundle.main)
 ```
 
 Or if you want to use the path to your GIF file, you can simply pass it as well:
 
 ```swift
 // Loads a GIF file from the provided path
-LottieView(path: URL(string: "path/to/cat.gif")!)
+Giffy(path: URL(string: "path/to/cat.gif")!)
 ```
 
 ### Remote Files
